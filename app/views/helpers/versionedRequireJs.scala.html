@@ -1,0 +1,3 @@
+@(module: String, core: String, productionFolderPrefix: String = "-min", folder: String= "javascripts")
+
+<script type="text/javascript" data-main="@{controllers.VersionedAssets.getUrl((if(play.api.Mode.Prod == play.api.Play.maybeApplication.map(_.mode).getOrElse(play.api.Mode.Dev)) module.replace(folder,folder+productionFolderPrefix) else module) + ".js").replaceAll(".js$", "")}" src="@controllers.VersionedAssets.getUrl(core)"></script>
