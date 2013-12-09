@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(title: String, module: String)(content: Html)
 
 <!DOCTYPE html>
 
@@ -7,6 +7,7 @@
         <title>@title</title>
         <link rel="stylesheet" media="screen" href="@controllers.VersionedAssets.getUrl("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@controllers.VersionedAssets.getUrl("images/favicon.png")">
+        @helpers.versionedRequireJs(core = "javascripts/require.js", module = "javascripts/" + module)
     </head>
     <body>
         @content
